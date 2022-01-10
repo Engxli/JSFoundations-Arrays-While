@@ -1,3 +1,5 @@
+const template = require("babel-template");
+
 /**
  * isArrayLengthOdd(numbers):
  * - receives array `numbers`
@@ -10,6 +12,7 @@
  */
 function isArrayLengthOdd(numbers) {
   // Your code here
+  return (numbers.length%2 != 0);
 }
 
 /**
@@ -24,6 +27,7 @@ function isArrayLengthOdd(numbers) {
  */
 function isArrayLengthEven(numbers) {
   // Your code here
+  return (numbers.length%2 != 1);
 }
 
 /**
@@ -36,6 +40,8 @@ function isArrayLengthEven(numbers) {
  */
 function addLailaToArray(instructors) {
   // Your code here
+  instructors.push("Laila");
+  return (instructors);
 }
 
 /**
@@ -48,6 +54,9 @@ function addLailaToArray(instructors) {
  */
 function eliminateTeam(teams) {
   // Your code here
+  let last = teams[teams.length-1];
+  teams.splice(teams.length-1, 1);
+  return (last);
 }
 
 /**
@@ -62,6 +71,8 @@ function eliminateTeam(teams) {
  */
 function secondHalfOfArrayIfItIsEven(fruits) {
   // Your code here
+  return(isArrayLengthOdd(fruits)? []: fruits.splice(fruits.length/2,fruits.length/2));
+  
 }
 
 /**
@@ -80,6 +91,12 @@ function secondHalfOfArrayIfItIsEven(fruits) {
  */
 function youGottaCalmDown(shout) {
   // Your code here
+  if(shout.indexOf('!') != -1)
+  {
+    shout = shout.slice(0, shout.indexOf('!'));
+    youGottaCalmDown(shout);
+  }
+  return shout+"!";
 }
 
 module.exports = {
